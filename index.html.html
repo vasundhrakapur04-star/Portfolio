@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vasundhra Kapur — Strategy Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F9F6F0;
+    --warm-white: #FDFBF8;
+    --ink: #1A1714;
+    --ink-secondary: #4A4540;
+    --ink-muted: #8A837A;
+    --gold: #B8933A;
+    --gold-light: #E8D5A3;
+    --gold-pale: #F5EDD8;
+    --rust: #8B4513;
+    --border: rgba(26,23,20,0.12);
+    --border-strong: rgba(26,23,20,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(249,246,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 400; letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 13px; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-secondary);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 60px;
+  }
+  .hero-left {
+    padding: 7rem 4rem 5rem 5rem;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative;
+  }
+  .hero-left::before {
+    content: '';
+    position: absolute; top: 80px; left: 5rem;
+    width: 40px; height: 1px;
+    background: var(--gold);
+  }
+  .hero-tag {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 5vw, 72px);
+    font-weight: 300; line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name em { font-style: italic; color: var(--gold); }
+  .hero-desc {
+    font-size: 16px; color: var(--ink-secondary);
+    max-width: 440px; line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--ink);
+    color: var(--cream);
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--ink);
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold); border-color: var(--gold); }
+  .btn-outline {
+    display: inline-block;
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--ink);
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--border-strong);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-right {
+    background: var(--ink);
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-right::before {
+    content: 'VK';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 280px; font-weight: 300;
+    color: rgba(255,255,255,0.04);
+    position: absolute; top: -40px; right: -20px;
+    line-height: 1; letter-spacing: -0.05em;
+    pointer-events: none;
+  }
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.1);
+    padding: 1.5rem 1.25rem;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1; margin-bottom: 0.35rem;
+  }
+  .stat-label {
+    font-size: 11px; font-weight: 400;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+  .hero-quote {
+    margin-bottom: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 20px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+    border-left: 2px solid var(--gold);
+    padding-left: 1.25rem;
+  }
+
+  /* SECTION BASE */
+  section { padding: 6rem 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 3rem; }
+  .section-header { margin-bottom: 4rem; }
+  .section-number {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .section-number::before {
+    content: ''; display: block;
+    width: 32px; height: 1px; background: var(--gold);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px; font-weight: 300;
+    line-height: 1.1; color: var(--ink);
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* ABOUT */
+  .about-section { background: var(--warm-white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 5rem; align-items: start;
+  }
+  .about-credentials { margin-top: 2rem; }
+  .credential-item {
+    display: flex; flex-direction: column;
+    padding: 1.25rem 0;
+    border-top: 0.5px solid var(--border);
+  }
+  .credential-item:last-child { border-bottom: 0.5px solid var(--border); }
+  .cred-org {
+    font-size: 13px; font-weight: 500; letter-spacing: 0.03em;
+    color: var(--ink); margin-bottom: 0.2rem;
+  }
+  .cred-role {
+    font-size: 13px; color: var(--ink-muted);
+  }
+  .cred-period {
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--gold); margin-top: 0.25rem;
+  }
+  .about-text p { color: var(--ink-secondary); margin-bottom: 1.25rem; font-size: 16px; }
+  .skills-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0.75rem; margin-top: 2rem;
+  }
+  .skill-tag {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border: 0.5px solid var(--border-strong);
+    color: var(--ink-secondary);
+    background: transparent;
+    text-align: center;
+  }
+
+  /* WORK */
+  .work-section { background: var(--cream); }
+  .projects-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .project-card {
+    background: var(--warm-white);
+    border: 0.5px solid var(--border);
+    padding: 2.5rem;
+    position: relative; overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    text-decoration: none; color: inherit;
+    display: block;
+  }
+  .project-card:hover { border-color: var(--gold); }
+  .project-card.featured {
+    grid-column: span 2;
+    background: var(--ink); color: var(--cream);
+    border-color: transparent;
+  }
+  .project-card.featured .project-type,
+  .project-card.featured .project-desc { color: rgba(255,255,255,0.55); }
+  .project-card.featured .project-title { color: var(--cream); }
+  .project-card.featured:hover { border-color: var(--gold); border-width: 1px; }
+  .project-number {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .project-type {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-muted);
+    margin-bottom: 0.75rem;
+  }
+  .project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 400;
+    line-height: 1.2; color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .project-card.featured .project-title { font-size: 36px; }
+  .project-desc {
+    font-size: 14px; color: var(--ink-secondary);
+    line-height: 1.7; margin-bottom: 1.5rem;
+  }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .project-tag {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 0.5px solid rgba(184,147,58,0.4);
+    color: var(--gold);
+    background: rgba(184,147,58,0.08);
+  }
+  .project-card.featured .project-tag {
+    border-color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.06);
+  }
+  .project-arrow {
+    position: absolute; bottom: 2rem; right: 2rem;
+    font-size: 20px; color: var(--gold);
+    transition: transform 0.2s;
+  }
+  .project-card:hover .project-arrow { transform: translate(3px,-3px); }
+
+  /* AI PROJECT HIGHLIGHT */
+  .ai-section {
+    background: var(--ink);
+    padding: 5rem 0;
+  }
+  .ai-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+  .ai-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .ai-label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .ai-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 300;
+    color: var(--cream); line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+  .ai-title em { font-style: italic; color: var(--gold-light); }
+  .ai-desc { color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.75; margin-bottom: 2rem; }
+  .ai-features { list-style: none; margin-bottom: 2rem; }
+  .ai-features li {
+    font-size: 14px; color: rgba(255,255,255,0.65);
+    padding: 0.6rem 0;
+    border-top: 0.5px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .ai-features li::before {
+    content: '';
+    display: block; width: 6px; height: 6px;
+    border-radius: 50%; background: var(--gold);
+    flex-shrink: 0;
+  }
+  
+  .ai-preview {
+    border: 0.5px solid rgba(255,255,255,0.15);
+    padding: 2rem;
+  }
+  .ai-preview-tag {
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.25rem;
+  }
+  .ai-preview-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 300; color: var(--cream);
+    margin-bottom: 0.75rem; line-height: 1.3;
+  }
+  .ai-preview-desc {
+    font-size: 13px; color: rgba(255,255,255,0.45);
+    line-height: 1.7; margin-bottom: 1.5rem;
+  }
+  .ai-chip {
+    display: inline-block;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 0.5px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.45);
+    margin-right: 6px; margin-bottom: 6px;
+  }
+
+  /* CONTACT */
+  .contact-section { background: var(--warm-white); }
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: start;
+  }
+  .contact-text { font-size: 16px; color: var(--ink-secondary); line-height: 1.75; margin-bottom: 2rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 0; }
+  .contact-link {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 0;
+    border-top: 0.5px solid var(--border);
+    text-decoration: none; color: var(--ink);
+    transition: color 0.2s;
+  }
+  .contact-link:last-child { border-bottom: 0.5px solid var(--border); }
+  .contact-link:hover { color: var(--gold); }
+  .contact-link-label { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+  .contact-link-value { font-size: 13px; color: var(--ink-muted); }
+  .contact-link:hover .contact-link-value { color: var(--gold); }
+
+  .open-to {
+    background: var(--gold-pale);
+    border: 0.5px solid var(--gold-light);
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+  .open-to-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .open-to-roles { display: flex; flex-direction: column; gap: 0.4rem; }
+  .role-item { font-size: 14px; color: var(--ink-secondary); display: flex; gap: 0.5rem; }
+  .role-item::before { content: '—'; color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    padding: 2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.5);
+  }
+  .footer-note { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tag, .hero-name, .hero-desc, .hero-cta {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-tag { animation-delay: 0.1s; }
+  .hero-name { animation-delay: 0.25s; }
+  .hero-desc { animation-delay: 0.4s; }
+  .hero-cta { animation-delay: 0.55s; }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 4rem 1.5rem 3rem; }
+    .about-grid, .ai-inner, .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: span 1; }
+    .container { padding: 0 1.5rem; }
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Vasundhra Kapur</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#ai">AI Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">PGP · Technology & Business Management · Masters' Union, Gurugram · 2026</p>
+    <h1 class="hero-name">Strategy &<br><em>Advisory</em><br>Portfolio</h1>
+    <p class="hero-desc">McKinsey & Co · Genpact Enterprise Risk · MBA · Looking for strategy roles in Delhi NCR.</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn-primary">View Work</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <p class="hero-quote">"Strategy is not about being the best. It's about being unique."</p>
+    <div class="hero-stats">
+      <div class="stat-box">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Strategy Projects</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">McKinsey</div>
+        <div class="stat-label">Prior Role</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-header">
+          <div class="section-number">01 — About</div>
+          <h2 class="section-title">Experience &<br><em>Background</em></h2>
+        </div>
+        <div class="about-credentials">
+          <div class="credential-item">
+            <span class="cred-org">Masters' Union, Gurugram</span>
+            <span class="cred-role">PGP in Technology & Business Management · GPA 3.54/4.0</span>
+            <span class="cred-period"></span>
+          </div>
+          <div class="credential-item">
+            <span class="cred-org">McKinsey & Company, Gurugram</span>
+            <span class="cred-role">Junior Capabilities & Insights Analyst · Promoted within 12 months</span>
+            <span class="cred-period">Jun 2023 — May 2025</span>
+          </div>
+          <div class="credential-item">
+            <span class="cred-org">Genpact Enterprise Risk Consulting, Gurugram</span>
+            <span class="cred-role">Analyst – Third Party Risk Management · Rising Star Award 2023</span>
+            <span class="cred-period">Jul 2022 — Jun 2023</span>
+          </div>
+          <div class="credential-item">
+            <span class="cred-org">Shaheed Bhagat Singh College, University of Delhi</span>
+            <span class="cred-role">B.Com (Hons.) · GPA 8.35/10 · First Division with Distinction</span>
+            <span class="cred-period">2019 — 2022</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>A strategy professional with a foundation built across McKinsey & Company, Genpact Enterprise Risk Consulting, and a rigorous MBA — with a consistent record of turning ambiguous briefs into decisions that stick. At McKinsey, I led complex, multi-stakeholder engagements spanning market entry, pipeline development, and commercial analysis across industries. At Genpact, I rebuilt a compliance framework for a $50B UK insurance client and won the Rising Star Award 2023.</p>
+        <p>I also build with AI — my Competitor Intelligence Agent uses RAG architecture with real-time web retrieval to eliminate hallucination in competitive analysis. Currently looking for strategy roles in Delhi NCR.</p>
+        <div class="skills-grid">
+          <div class="skill-tag">Corporate Strategy</div>
+          <div class="skill-tag">Market Entry</div>
+          <div class="skill-tag">Commercial Due Diligence</div>
+          <div class="skill-tag">Growth Strategy</div>
+          <div class="skill-tag">Market Research</div>
+          <div class="skill-tag">GTM Strategy</div>
+          <div class="skill-tag">Risk Assessment</div>
+          <div class="skill-tag">AI Workflow & Agents</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work-section" id="work">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">02 — Selected Work</div>
+      <h2 class="section-title">Strategy <em>Projects</em></h2>
+    </div>
+    <div class="projects-grid">
+
+      <!-- Featured: Amazon -->
+      <a href="#" class="project-card featured">
+        <div class="project-number">01 — Market Research</div>
+        <div class="project-type">Consumer Behaviour · Omnichannel Strategy · Statistical Research</div>
+        <div class="project-title">Should Amazon Enter Physical Retail in India?</div>
+        <div class="project-desc">A full-cycle mixed-methods research study answering whether a digital-first platform should open physical stores in urban India. Used 30 in-depth interviews to surface 7 latent consumer variables, then validated through chi-square tests, PCA factor analysis, logistic regression (Nagelkerke R² = 0.73), and K-means cluster segmentation. Identified the "Trust-Led Omnichannel Buyer" as the primary ICP — representing 35–40% of the urban market — and recommended a selective phased rollout strategy anchored in reassurance, not speed.</div>
+        <div class="project-tags">
+          <span class="project-tag">Factor Analysis</span>
+          <span class="project-tag">Logistic Regression</span>
+          <span class="project-tag">K-Means Clustering</span>
+          <span class="project-tag">Consumer Segmentation</span>
+          <span class="project-tag">Omnichannel Strategy</span>
+        </div>
+        <span class="project-arrow">↗</span>
+      </a>
+
+      <!-- Soul Sync -->
+      <div class="project-card">
+        <div class="project-number">02 — GTM Strategy</div>
+        <div class="project-type">Startup · Go-to-Market · Consumer Wellness</div>
+        <div class="project-title">Soul Sync: Community Wellness GTM Plan</div>
+        <div class="project-desc">Co-authored a full GTM strategy for a community wellness platform targeting stressed young professionals in Delhi NCR. Covered need-gap analysis (primary survey of 100+ respondents), STP segmentation, Porter's Five Forces, PESTEL, 5C analysis, pricing strategy (penetration + value tiers), and a phased 6-month launch plan with KPIs: 500+ subscribers, CAC under ₹300.</div>
+        <div class="project-tags">
+          <span class="project-tag">GTM Planning</span>
+          <span class="project-tag">STP Analysis</span>
+          <span class="project-tag">Primary Research</span>
+          <span class="project-tag">Pricing Strategy</span>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+
+      <!-- Meta -->
+      <div class="project-card">
+        <div class="project-number">03 — Corporate Strategy</div>
+        <div class="project-type">Big Tech · Competitive Analysis · Strategic Advisory</div>
+        <div class="project-title">Meta Platforms: Strategic Analysis & Future Outlook</div>
+        <div class="project-desc">Comprehensive corporate strategy analysis of Meta across its ad duopoly position, sustainable competitive advantages, and AI investment thesis. Built on SEC 10-K data (FY2024), benchmarked operating margins across Google, Amazon, Snap, and Pinterest, and made strategic recommendations for AI-driven commerce and creator monetization to defend the $160B revenue base.</div>
+        <div class="project-tags">
+          <span class="project-tag">Corporate Strategy</span>
+          <span class="project-tag">Competitive Moats</span>
+          <span class="project-tag">Financial Analysis</span>
+          <span class="project-tag">AI Strategy</span>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+
+      <!-- Fam -->
+      <div class="project-card" style="position:relative;">
+        <div style="position:absolute;top:1.5rem;right:1.5rem;background:rgba(184,147,58,0.12);border:0.5px solid rgba(184,147,58,0.4);padding:4px 10px;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);">Challenge Winner</div>
+        <div class="project-number">04 — GTM Communication Strategy</div>
+        <div class="project-type">Fintech · Gen Z · Consumer Behaviour · Brand Strategy</div>
+        <div class="project-title">Fam: Teen Wallet to Financial Sidekick</div>
+        <div class="project-desc">Won a live industry challenge. Developed a full GTM communication strategy for Fam — a teen UPI app pivoting to Gen Z's financial lifestyle platform. Conducted 20 qualitative interviews to map churn drivers (KYC friction 38%, fee confusion 22%), built segment-specific messaging playbooks for ages 16–17 and 18–20, designed a Fam Lite / Fam Pro dual-tier product architecture, and created a channel plan with budget split across Instagram, YouTube, campus, and communities.</div>
+        <div class="project-tags">
+          <span class="project-tag">Fintech Strategy</span>
+          <span class="project-tag">Consumer Interviews</span>
+          <span class="project-tag">Brand Positioning</span>
+          <span class="project-tag">Channel Planning</span>
+          <span class="project-tag">Gen Z Marketing</span>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AI PROJECT -->
+<section class="ai-section" id="ai">
+  <div class="container">
+    <div class="ai-inner">
+      <div>
+        <div class="ai-label">03 — AI Project</div>
+        <h2 class="ai-title">Competitor <em>Intelligence</em> Agent</h2>
+        <p class="ai-desc">A competitor benchmarking tool built on RAG architecture — integrates Tavily Search API for real-time web retrieval and Gemini AI for structured analysis. Designed to eliminate hallucination by ensuring every data point is sourced from live web results. Supports multi-company benchmarking across business model, pricing, and strategy. Built independently, without prior coding experience.</p>
+        <ul class="ai-features">
+          <li>RAG architecture with Tavily Search API for real-time web retrieval</li>
+          <li>Gemini AI for structured competitive analysis output</li>
+          <li>Multi-company side-by-side benchmarking across strategy dimensions</li>
+          <li>Every data point source-verified — zero hallucination by design</li>
+        </ul>
+        <a href="https://competitive-edge-dashboard--vasundhrakapur0.replit.app" target="_blank" class="btn-primary" style="display:inline-block;">Launch Live App ↗</a>
+      </div>
+      <div>
+        <div class="ai-preview">
+          <div class="ai-preview-tag">Personal Project · Built with AI tools</div>
+          <div class="ai-preview-title">Competitor Intelligence Agent</div>
+          <div class="ai-preview-desc">Built on RAG architecture with Tavily Search API for real-time web retrieval and Gemini AI for structured analysis. Every insight is sourced from live results — no hallucination. Supports multi-company benchmarking across business model, pricing, and strategy.</div>
+          <div>
+            <span class="ai-chip">RAG architecture</span>
+            <span class="ai-chip">Tavily Search API</span>
+            <span class="ai-chip">Gemini AI</span>
+            <span class="ai-chip">Replit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section style="background:var(--cream);padding:4rem 0;border-top:0.5px solid var(--border);">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:2.5rem;">
+      <div class="section-number">04 — Achievements</div>
+      <h2 class="section-title">Recognition &<br><em>Competition Wins</em></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+      <div style="background:var(--warm-white);border:0.5px solid var(--border);padding:1.75rem 2rem;display:flex;flex-direction:column;gap:0.35rem;">
+        <span style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);">1st Place</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--ink);">GTM Challenge — Masters' Union × FamApp</span>
+        <span style="font-size:13px;color:var(--ink-muted);">~350 participants</span>
+      </div>
+      <div style="background:var(--warm-white);border:0.5px solid var(--border);padding:1.75rem 2rem;display:flex;flex-direction:column;gap:0.35rem;">
+        <span style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);">Top 20%</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--ink);">Data Visualisation Challenge — Masters' Union × Har Ghar Pooja</span>
+        <span style="font-size:13px;color:var(--ink-muted);">Insights presented directly to CEO</span>
+      </div>
+      <div style="background:var(--warm-white);border:0.5px solid var(--border);padding:1.75rem 2rem;display:flex;flex-direction:column;gap:0.35rem;">
+        <span style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);">2nd Place</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--ink);">Socioquest Case Competition — Enactus Hansraj</span>
+        <span style="font-size:13px;color:var(--ink-muted);">20+ inter-college teams</span>
+      </div>
+      <div style="background:var(--warm-white);border:0.5px solid var(--border);padding:1.75rem 2rem;display:flex;flex-direction:column;gap:0.35rem;">
+        <span style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);">1st Runner-Up</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--ink);">Business Study Competition — Hult SBSC</span>
+        <span style="font-size:13px;color:var(--ink-muted);">15+ inter-college teams</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div>
+        <div class="section-header">
+          <div class="section-number">05 — Contact</div>
+          <h2 class="section-title">Let's <em>Connect</em></h2>
+        </div>
+        <p class="contact-text">Actively exploring strategy roles in Delhi NCR. Open to conversations across consulting, corporate strategy, and advisory.</p>
+        <div class="open-to">
+          <div class="open-to-label">Open to</div>
+          <div class="open-to-roles">
+            <div class="role-item">Corporate & Growth Strategy</div>
+            <div class="role-item">Strategy & Operations</div>
+            <div class="role-item">Market Research & Intelligence</div>
+            <div class="role-item">General Management & Consulting</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="contact-links">
+          <a href="mailto:vasundhra.kapur04@gmail.com" class="contact-link">
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-value">vasundhra.kapur04@gmail.com →</span>
+          </a>
+          <a href="https://www.linkedin.com/in/vasundhrakapur/" target="_blank" class="contact-link">
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-value">linkedin.com/in/vasundhrakapur →</span>
+          </a>
+          <a href="https://competitive-edge-dashboard--vasundhrakapur0.replit.app" target="_blank" class="contact-link">
+            <span class="contact-link-label">AI Project</span>
+            <span class="contact-link-value">Competitor Intelligence Agent →</span>
+          </a>
+          <a href="#" class="contact-link">
+            <span class="contact-link-label">Location</span>
+            <span class="contact-link-value">New Delhi, India</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Vasundhra Kapur</span>
+  <span class="footer-note">Strategy Portfolio · 2026</span>
+</footer>
+
+</body>
+</html>
