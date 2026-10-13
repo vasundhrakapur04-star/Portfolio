@@ -275,6 +275,12 @@
     font-size: 14px; color: var(--ink-secondary);
     line-height: 1.7; margin-bottom: 1.5rem;
   }
+  .project-points { list-style: none; margin: 0 0 1.5rem; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+  .project-points li { font-size: 14px; line-height: 1.6; color: var(--ink-secondary); }
+  .project-points li span { display: block; font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
+  .project-card.featured .project-points li { color: rgba(255,255,255,0.7); }
+  .project-card.featured .project-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  @media (max-width: 768px) { .project-card.featured .project-points { grid-template-columns: 1fr; gap: 0.75rem; } }
   .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .project-tag {
     font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
@@ -539,11 +545,15 @@
     <div class="projects-grid">
 
       <!-- Featured: Amazon -->
-      <a href="amazon-market-research.pdf" target="_blank" rel="noopener" class="project-card featured">
+      <a href="https://vasundhrakapur04-star.github.io/Portfolio/amazon-market-research.pdf" target="_blank" rel="noopener" class="project-card featured">
         <div class="project-number">01 — Market Research</div>
         <div class="project-type">Consumer Behaviour · Omnichannel Strategy · Statistical Research</div>
         <div class="project-title">Should Amazon Enter Physical Retail in India?</div>
-        <div class="project-desc">A full-cycle mixed-methods research study answering whether a digital-first platform should open physical stores in urban India. Used 30 in-depth interviews to surface 7 latent consumer variables, then validated through chi-square tests, PCA factor analysis, logistic regression (Nagelkerke R² = 0.73), and K-means cluster segmentation. Identified the "Trust-Led Omnichannel Buyer" as the primary ICP — representing 35–40% of the urban market — and recommended a selective phased rollout strategy anchored in reassurance, not speed.</div>
+        <ul class="project-points">
+          <li><span>Context</span>Should a digital-first giant open physical stores in urban India?</li>
+          <li><span>What I did</span>30 consumer interviews, then statistical validation (factor analysis, regression, clustering) to segment buyers.</li>
+          <li><span>Recommendation</span>Selective, phased store rollout targeting the “Trust-Led Omnichannel Buyer” (35–40% of the urban market).</li>
+        </ul>
         <div class="project-tags">
           <span class="project-tag">Factor Analysis</span>
           <span class="project-tag">Logistic Regression</span>
@@ -555,11 +565,15 @@
       </a>
 
       <!-- OTA -->
-      <a href="ota-booking-window-strategy.pdf" target="_blank" rel="noopener" class="project-card">
+      <a href="https://vasundhrakapur04-star.github.io/Portfolio/ota-booking-window-strategy.pdf" target="_blank" rel="noopener" class="project-card">
         <div class="project-number">02 — Pricing & Revenue Strategy</div>
         <div class="project-type">Online Travel · Pricing Analytics · Conversion Strategy</div>
         <div class="project-title">Hotel Booking Window Strategy: Pricing, Timing & Conversion</div>
-        <div class="project-desc">Asked how a global online travel platform could grow revenue per booking by shaping when users book, not just how many book. Analysed 49,061 bookings across 5 cities and 9 star ratings: average room rates fall 30% as check-in nears ($170 → $119), yet 48% of bookings land in the final 7 days. Confirmed it was real discounting, not customer mix, via regression controls (p &lt; 0.001), segmented pricing behaviour across 50 city × star segments, sized a $33K–$66K booking-value opportunity, and designed a segmented urgency-messaging rules engine.</div>
+        <ul class="project-points">
+          <li><span>Context</span>A global travel platform wanted more revenue per booking. Room rates fall 30% near check-in, where 48% of bookings happen.</li>
+          <li><span>What I did</span>Analysed 49,061 bookings across 5 cities, proved the discounting effect with regression, and sized a $33K–$66K opportunity.</li>
+          <li><span>Recommendation</span>Segmented urgency messaging that nudges users to book earlier at higher rates, tailored to each city and hotel tier.</li>
+        </ul>
         <div class="project-tags">
           <span class="project-tag">Pricing Analytics</span>
           <span class="project-tag">Regression</span>
@@ -570,11 +584,15 @@
       </a>
 
       <!-- Real Estate -->
-      <a href="real-estate-marketplace-review.pdf" target="_blank" rel="noopener" class="project-card">
+      <a href="https://vasundhrakapur04-star.github.io/Portfolio/real-estate-marketplace-review.pdf" target="_blank" rel="noopener" class="project-card">
         <div class="project-number">03 — Commercial Strategy</div>
         <div class="project-type">PropTech · Marketplace · Performance Review</div>
         <div class="project-title">Real Estate Marketplace: Commercial Performance Review</div>
-        <div class="project-desc">Independent review of a MENA property marketplace from inception (2019–2022), across demand, client and revenue data. Visits grew 292% to 13.8M a quarter, but underneath the growth: a third of retained clients saw revenue decline, revenue per listing fell 32% as listings outpaced clients 4×, and paid app lead conversion dropped from 20.6% to 7.4% despite cheaper clicks. Recommended package restructuring with premium add-ons, a pre-renewal ROI playbook for at-risk mature accounts, and shifting paid spend to cost per qualified lead.</div>
+        <ul class="project-points">
+          <li><span>Context</span>A MENA property marketplace grew visits 292%, but was growth hiding weakness?</li>
+          <li><span>What I did</span>Reviewed 3 years of demand, client and revenue data. Found a third of clients shrinking and revenue per listing down 32%.</li>
+          <li><span>Recommendation</span>Restructure listing packages, run ROI reviews before renewals for at-risk clients, and judge paid spend on qualified leads.</li>
+        </ul>
         <div class="project-tags">
           <span class="project-tag">Marketplace Economics</span>
           <span class="project-tag">Client Health</span>
@@ -585,11 +603,15 @@
       </a>
 
       <!-- Meta -->
-      <a href="meta-strategy.pdf" target="_blank" rel="noopener" class="project-card">
+      <a href="https://vasundhrakapur04-star.github.io/Portfolio/meta-strategy.pdf" target="_blank" rel="noopener" class="project-card">
         <div class="project-number">04 — Corporate Strategy</div>
         <div class="project-type">Big Tech · Competitive Analysis · Strategic Advisory</div>
         <div class="project-title">Meta Platforms: Strategic Analysis & Future Outlook</div>
-        <div class="project-desc">Comprehensive corporate strategy analysis of Meta across its ad duopoly position, sustainable competitive advantages, and AI investment thesis. Built on SEC 10-K data (FY2024), benchmarked operating margins across Google, Amazon, Snap, and Pinterest, and made strategic recommendations for AI-driven commerce and creator monetization to defend the $160B revenue base.</div>
+        <ul class="project-points">
+          <li><span>Context</span>How should Meta defend its $160B ad business as AI reshapes the market?</li>
+          <li><span>What I did</span>Analysed its competitive moats and AI bets using FY2024 10-K data, benchmarking margins against Google, Amazon, Snap and Pinterest.</li>
+          <li><span>Recommendation</span>Double down on AI-driven commerce and creator monetization to protect the core ad base.</li>
+        </ul>
         <div class="project-tags">
           <span class="project-tag">Corporate Strategy</span>
           <span class="project-tag">Competitive Moats</span>
@@ -600,12 +622,16 @@
       </a>
 
       <!-- Fam -->
-      <a href="fam-gtm-strategy.pdf" target="_blank" rel="noopener" class="project-card" style="position:relative;">
+      <a href="https://vasundhrakapur04-star.github.io/Portfolio/fam-gtm-strategy.pdf" target="_blank" rel="noopener" class="project-card" style="position:relative;">
         <div style="position:absolute;top:1.5rem;right:1.5rem;background:rgba(184,147,58,0.12);border:0.5px solid rgba(184,147,58,0.4);padding:4px 10px;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);">Challenge Winner</div>
         <div class="project-number">05 — GTM Communication Strategy</div>
         <div class="project-type">Fintech · Gen Z · Consumer Behaviour · Brand Strategy</div>
         <div class="project-title">Fam: Teen Wallet to Financial Sidekick</div>
-        <div class="project-desc">Won a live industry challenge. Developed a full GTM communication strategy for Fam — a teen UPI app pivoting to Gen Z's financial lifestyle platform. Conducted 20 qualitative interviews to map churn drivers (KYC friction 38%, fee confusion 22%), built segment-specific messaging playbooks for ages 16–17 and 18–20, designed a Fam Lite / Fam Pro dual-tier product architecture, and created a channel plan with budget split across Instagram, YouTube, campus, and communities.</div>
+        <ul class="project-points">
+          <li><span>Context</span>Fam, a teen payments app, needed to win and keep Gen Z users as they grow up.</li>
+          <li><span>What I did</span>20 user interviews to find why users leave (KYC friction, fee confusion), then built messaging and a channel plan. Won the live challenge.</li>
+          <li><span>Recommendation</span>A Fam Lite / Fam Pro two-tier product with age-specific messaging across Instagram, YouTube and campus.</li>
+        </ul>
         <div class="project-tags">
           <span class="project-tag">Fintech Strategy</span>
           <span class="project-tag">Consumer Interviews</span>
