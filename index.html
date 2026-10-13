@@ -289,9 +289,11 @@
     color: rgba(255,255,255,0.6);
     background: rgba(255,255,255,0.06);
   }
+  .project-card { padding-bottom: 4.5rem; }
   .project-arrow {
     position: absolute; bottom: 2rem; right: 2rem;
-    font-size: 20px; color: var(--gold);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold);
     transition: transform 0.2s;
   }
   .project-card:hover .project-arrow { transform: translate(3px,-3px); }
@@ -538,7 +540,7 @@
     <div class="projects-grid">
 
       <!-- Featured: Amazon -->
-      <a href="#" class="project-card featured">
+      <a href="decks/amazon-market-research.pdf" target="_blank" rel="noopener" class="project-card featured">
         <div class="project-number">01 — Market Research</div>
         <div class="project-type">Consumer Behaviour · Omnichannel Strategy · Statistical Research</div>
         <div class="project-title">Should Amazon Enter Physical Retail in India?</div>
@@ -550,27 +552,42 @@
           <span class="project-tag">Consumer Segmentation</span>
           <span class="project-tag">Omnichannel Strategy</span>
         </div>
-        <span class="project-arrow">↗</span>
+        <span class="project-arrow">View deck ↗</span>
       </a>
 
-      <!-- Soul Sync -->
-      <div class="project-card">
-        <div class="project-number">02 — GTM Strategy</div>
-        <div class="project-type">Startup · Go-to-Market · Consumer Wellness</div>
-        <div class="project-title">Soul Sync: Community Wellness GTM Plan</div>
-        <div class="project-desc">Co-authored a full GTM strategy for a community wellness platform targeting stressed young professionals in Delhi NCR. Covered need-gap analysis (primary survey of 100+ respondents), STP segmentation, Porter's Five Forces, PESTEL, 5C analysis, pricing strategy (penetration + value tiers), and a phased 6-month launch plan with KPIs: 500+ subscribers, CAC under ₹300.</div>
+      <!-- OTA -->
+      <a href="decks/ota-booking-window-strategy.pdf" target="_blank" rel="noopener" class="project-card">
+        <div class="project-number">02 — Pricing & Revenue Strategy</div>
+        <div class="project-type">Online Travel · Pricing Analytics · Conversion Strategy</div>
+        <div class="project-title">Hotel Booking Window Strategy: Pricing, Timing & Conversion</div>
+        <div class="project-desc">Asked how a global online travel platform could grow revenue per booking by shaping when users book, not just how many book. Analysed 49,061 bookings across 5 cities and 9 star ratings: average room rates fall 30% as check-in nears ($170 → $119), yet 48% of bookings land in the final 7 days. Confirmed it was real discounting, not customer mix, via regression controls (p &lt; 0.001), segmented pricing behaviour across 50 city × star segments, sized a $33K–$66K booking-value opportunity, and designed a segmented urgency-messaging rules engine.</div>
         <div class="project-tags">
-          <span class="project-tag">GTM Planning</span>
-          <span class="project-tag">STP Analysis</span>
-          <span class="project-tag">Primary Research</span>
-          <span class="project-tag">Pricing Strategy</span>
+          <span class="project-tag">Pricing Analytics</span>
+          <span class="project-tag">Regression</span>
+          <span class="project-tag">Opportunity Sizing</span>
+          <span class="project-tag">Conversion Strategy</span>
         </div>
-        <span class="project-arrow">↗</span>
-      </div>
+        <span class="project-arrow">View deck ↗</span>
+      </a>
+
+      <!-- Real Estate -->
+      <a href="decks/real-estate-marketplace-review.pdf" target="_blank" rel="noopener" class="project-card">
+        <div class="project-number">03 — Commercial Strategy</div>
+        <div class="project-type">PropTech · Marketplace · Performance Review</div>
+        <div class="project-title">Real Estate Marketplace: Commercial Performance Review</div>
+        <div class="project-desc">Independent review of a MENA property marketplace from inception (2019–2022), across demand, client and revenue data. Visits grew 292% to 13.8M a quarter, but underneath the growth: a third of retained clients saw revenue decline, revenue per listing fell 32% as listings outpaced clients 4×, and paid app lead conversion dropped from 20.6% to 7.4% despite cheaper clicks. Recommended package restructuring with premium add-ons, a pre-renewal ROI playbook for at-risk mature accounts, and shifting paid spend to cost per qualified lead.</div>
+        <div class="project-tags">
+          <span class="project-tag">Marketplace Economics</span>
+          <span class="project-tag">Client Health</span>
+          <span class="project-tag">Pricing & Packaging</span>
+          <span class="project-tag">Marketing Efficiency</span>
+        </div>
+        <span class="project-arrow">View deck ↗</span>
+      </a>
 
       <!-- Meta -->
-      <div class="project-card">
-        <div class="project-number">03 — Corporate Strategy</div>
+      <a href="decks/meta-strategy.pdf" target="_blank" rel="noopener" class="project-card">
+        <div class="project-number">04 — Corporate Strategy</div>
         <div class="project-type">Big Tech · Competitive Analysis · Strategic Advisory</div>
         <div class="project-title">Meta Platforms: Strategic Analysis & Future Outlook</div>
         <div class="project-desc">Comprehensive corporate strategy analysis of Meta across its ad duopoly position, sustainable competitive advantages, and AI investment thesis. Built on SEC 10-K data (FY2024), benchmarked operating margins across Google, Amazon, Snap, and Pinterest, and made strategic recommendations for AI-driven commerce and creator monetization to defend the $160B revenue base.</div>
@@ -580,13 +597,13 @@
           <span class="project-tag">Financial Analysis</span>
           <span class="project-tag">AI Strategy</span>
         </div>
-        <span class="project-arrow">↗</span>
-      </div>
+        <span class="project-arrow">View deck ↗</span>
+      </a>
 
       <!-- Fam -->
-      <div class="project-card" style="position:relative;">
+      <a href="decks/fam-gtm-strategy.pdf" target="_blank" rel="noopener" class="project-card" style="position:relative;">
         <div style="position:absolute;top:1.5rem;right:1.5rem;background:rgba(184,147,58,0.12);border:0.5px solid rgba(184,147,58,0.4);padding:4px 10px;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);">Challenge Winner</div>
-        <div class="project-number">04 — GTM Communication Strategy</div>
+        <div class="project-number">05 — GTM Communication Strategy</div>
         <div class="project-type">Fintech · Gen Z · Consumer Behaviour · Brand Strategy</div>
         <div class="project-title">Fam: Teen Wallet to Financial Sidekick</div>
         <div class="project-desc">Won a live industry challenge. Developed a full GTM communication strategy for Fam — a teen UPI app pivoting to Gen Z's financial lifestyle platform. Conducted 20 qualitative interviews to map churn drivers (KYC friction 38%, fee confusion 22%), built segment-specific messaging playbooks for ages 16–17 and 18–20, designed a Fam Lite / Fam Pro dual-tier product architecture, and created a channel plan with budget split across Instagram, YouTube, campus, and communities.</div>
@@ -597,8 +614,8 @@
           <span class="project-tag">Channel Planning</span>
           <span class="project-tag">Gen Z Marketing</span>
         </div>
-        <span class="project-arrow">↗</span>
-      </div>
+        <span class="project-arrow">View deck ↗</span>
+      </a>
 
     </div>
   </div>
